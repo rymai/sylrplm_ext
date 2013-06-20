@@ -5,8 +5,12 @@ PLM extensions
 
 Installation
 ------------
-complete the Gemfile of your project:
+install directly the gem:
+gem install "sylrplm_ext" 
 
+or
+
+complete the Gemfile of your project:
 gem "sylrplm_ext", git: "git://github.com/sylvani/sylrplm_ext.git"
 
 
