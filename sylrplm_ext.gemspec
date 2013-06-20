@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = SylrplmExt::VERSION
   gem.authors       = ["sylvani"]
   gem.email         = ["sylvani@laposte.net"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{PLM extensions}
+  gem.summary       = %q{PLM extensions}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
