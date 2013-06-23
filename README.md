@@ -11,7 +11,7 @@ gem install "sylrplm_ext"
 or
 
 complete the Gemfile of your project:
-gem "sylrplm_ext", git: "git://github.com/sylvani/sylrplm_ext.git"
+gem "sylrplm_ext", :git => "git://github.com/sylvani/sylrplm_ext.git"
 
 
 Documentation
