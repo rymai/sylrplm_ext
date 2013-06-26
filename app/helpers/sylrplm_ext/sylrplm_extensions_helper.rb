@@ -26,6 +26,7 @@ module SylrplmExt
 			ret<< hidden_field(sym_objfrom , "#{sym_objto}_id")
 			ret<< text_field_tag("#{sym_objfrom}_#{sym_objto}_display", val_objtoselect, :disabled => true)
 			ret<< link_to("...", {:controller => control, :todo => "select", :html_ident => "#{sym_objfrom}_#{sym_objto}"} , {:target => "_blank", :class => 'menu_bas',:title=>t("btn_select")})
+
 			ret
 		end
 
@@ -90,7 +91,8 @@ module SylrplmExt
 				html += "</table>"
 				html += "<script>selectInOutFill('#{select_id}')</script>"
 			end
-			html
+
+			html.html_safe
 		end
 
 		#
@@ -102,7 +104,8 @@ module SylrplmExt
 			html = "<p>#{t(:label_select_active)}</p>"
 			html += check_box_tag(:select_active, "no", "false", :onclick=>"selectActive(this, '#{select_id}'); return true;")
 			html += form.collection_select(attribute, values, id, method)
-			html
+
+			html.html_safe
 		end
 
 	end
