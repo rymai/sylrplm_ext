@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
 	gem.email         = ["sylvani@laposte.net"]
 	gem.description   = %q{PLM extensions: select in/out, select in list, }
 	gem.summary       = %q{PLM extensions:}
-	gem.homepage      = ""
+	gem.homepage      = "http://github.com/sylvani/sylrplm_ext"
 	gem.add_development_dependency "rspec"
 	
 	gem.files         = `git ls-files`.split("\n")
