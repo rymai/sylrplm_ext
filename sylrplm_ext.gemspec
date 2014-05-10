@@ -11,16 +11,16 @@ Gem::Specification.new do |gem|
 	gem.summary       = %q{PLM extensions:}
 	gem.homepage      = "http://github.com/sylvani/sylrplm_ext"
 	gem.add_development_dependency "rspec"
-	
-  gem.files         = `git ls-files`.split("\n")
-  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  gem.require_paths = ["lib","public"]
+
+	gem.files         = `git ls-files`.split("\n")
+	gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+	gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+	gem.require_paths = ["lib","public"]
 
 	#s.add_development_dependency 'rspec'
-  #s.files = Dir['{app,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
+	#s.files = Dir['{app,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
 	gem.add_development_dependency "minitest"
-  gem.add_development_dependency "guard-minitest"
-  #gem.add_development_dependency "rake"
-  gem.add_dependency "railties" #, "~> 4.1"
+	gem.add_development_dependency "guard-minitest"
+#gem.add_development_dependency "rake"
+#pgb de version rails: 3.0 et j'ai 2.3.17 gem.add_dependency "railties" #, "~> 4.1"
 end
