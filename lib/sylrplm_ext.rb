@@ -3,8 +3,7 @@ puts "******************************** sylrplm_ext *****************************
 require "sylrplm_ext/version"
 require 'sylrplm_ext/sylrplm_extensions_helper'
 
-ActionView::Helper.send :include, SylrplmExt::SylrplmExtensionsHelper
-
+ActionView::Base.send :include, SylrplmExt::SylrplmExtensionsHelper
 =begin
 require 'rails'
 module SylrplmExt
