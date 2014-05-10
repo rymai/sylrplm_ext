@@ -22,5 +22,5 @@ Gem::Specification.new do |gem|
 	gem.add_development_dependency "minitest"
   gem.add_development_dependency "guard-minitest"
   #gem.add_development_dependency "rake"
-  gem.add_dependency "railties"
+  #gem.add_dependency "railties", "~> 4.1"
 end
