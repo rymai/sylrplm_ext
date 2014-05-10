@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$:.push File.expand_path("../lib", __FILE__)
 require 'sylrplm_ext/version'
 
 Gem::Specification.new do |gem|
@@ -13,12 +12,13 @@ Gem::Specification.new do |gem|
 	gem.homepage      = "http://github.com/sylvani/sylrplm_ext"
 	gem.add_development_dependency "rspec"
 	
-	gem.files         = `git ls-files`.split("\n")
-	gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-	gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-	gem.require_paths = ["lib"]
+  gem.files         = `git ls-files`.split("\n")
+  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  gem.require_paths = ["lib"]
 
 	#s.add_development_dependency 'rspec'
   #s.files = Dir['{app,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
-
+	gem.add_development_dependency "minitest"
+  gem.add_development_dependency "guard-minitest"
 end
