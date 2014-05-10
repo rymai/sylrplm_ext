@@ -1,4 +1,4 @@
-require 'sylrplm_ext/sylrplm_extensions_helpers'
+require 'sylrplm_ext/sylrplm_extensions_helper'
 
 module SylrplmExt
 	class Railtie < Rails::Railtie
