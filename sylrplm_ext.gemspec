@@ -21,6 +21,6 @@ Gem::Specification.new do |gem|
   #s.files = Dir['{app,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
 	gem.add_development_dependency "minitest"
   gem.add_development_dependency "guard-minitest"
-  gem.add_development_dependency "rake"
+  #gem.add_development_dependency "rake"
   gem.add_dependency "railties"
 end
