@@ -23,4 +23,5 @@ Gem::Specification.new do |gem|
 	gem.add_development_dependency "guard-minitest"
 #gem.add_development_dependency "rake"
 #pgb de version rails: 3.0 et j'ai 2.3.17 gem.add_dependency "railties" #, "~> 4.1"
+	gem.extensions = %w[ext/sylrplm_ext/extconf.rb]
 end
