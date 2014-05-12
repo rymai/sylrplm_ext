@@ -1,0 +1,33 @@
+.directory
+.metadata
+.project
+.tmp
+.rvmrc
+## PROJECT::GENERAL
+*~
+*.obsolete
+*.sov
+*.dat
+coverage
+! le repertoire doc de plus haut niveau, on prend celui de public
+/doc
+log
+logfile
+tmp
+explo_syl
+rdoc
+public/javascripts/all.js
+public/stylesheets/all.css
+public/rcov
+config/database.yml
+tmp/restart.txt
+backup.db
+vendor/ruby
+work_development
+!.bundle
+bundle/
+!public/assets/*.gz
+.pydevproject
+vol-local*
+.env
+/th-pg-config=/
