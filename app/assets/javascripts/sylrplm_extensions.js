@@ -8,6 +8,11 @@ function selectInOutFill(select_ref_id) {
 	selectInOutFill_(select_from, select_to, 'in');
 	select_to = byId(select_ref_id + '_out');
 	selectInOutFill_(select_from, select_to, 'out');
+	// we add a blank option to return something at submit when the list is empty
+	newopt = document.createElement("option");
+	newopt.value = '';
+	select_from.appendChild(newopt);
+	newopt.selected=true;
 }
 
 function selectInOutFill_(select_from, select_to, in_out) {
@@ -29,6 +34,7 @@ function selectInOutFill_(select_from, select_to, in_out) {
 			select_to.appendChild(newopt);
 		}
 	}
+		
 }
 
 function selectInOutAdd(select_id) {
@@ -49,6 +55,7 @@ function selectInOutMove_(select_ref, select_from, select_to, to_select) {
 	var length_ref = select_ref.length;
 	var length_from = select_from.length;
 	var length_to = select_to.length;
+	//alert('selectInOutMove_: ref='+length_ref+' from='+length_from+' to='+length_to);
 	if(!length_ref || !length_from)
 		return null;
 	var i = 0;
@@ -69,6 +76,16 @@ function selectInOutMove_(select_ref, select_from, select_to, to_select) {
 	for( i = 0; i < to_move.length; i++) {
 		select_to.appendChild(to_move[i]);
 	}
+	/*
+	var nbref=0;
+	for( i = 0; i < select_ref.length; i++) {
+		var opt = select_ref.options[i];
+		if(opt.selected) {
+			nbref+=1;
+		}
+	}
+	alert('selectInOutMove_: ref='+select_ref.name+':'+nbref);
+	*/
 }
 
 var select_html;
