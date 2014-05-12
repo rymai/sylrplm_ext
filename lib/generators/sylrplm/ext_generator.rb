@@ -5,6 +5,7 @@ module Sylrplm
 
     # Copy all needed stylesheets in the asset directory of the application
     def copy_stylesheets
+    	puts "******************************** ExtGenerator.copy_stylesheets *******************************"
       FileUtils.mkdir_p "app/assets/stylesheets/bootstrap_overrides"
 
       copy_file "../../../app/assets/stylesheets/twitter/bootstrap.css.scss",        "app/assets/stylesheets/bootstrap_overrides/base.css.scss"
