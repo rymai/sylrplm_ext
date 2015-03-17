@@ -3,31 +3,42 @@ module SylrplmExt
 		#
 		# == Role: this function permit a selection in a list of objects in another window
 		# <em>the field in a first window is updated with the value selected in the second</em>
+		#
 		# == Arguments
 		# * +sym_objfrom+ - \Object name to edit
 		# * +sym_objto+ - \Object to select
 		# * +val_objtoselect+ - Actual value of the object to select
-		# * +:control+ - Controller of the object to select
+		# * +:controller+ - Controller of the object to select
+		#
 		# == Usage
+		#
 		# === Calling view
-		# During datafile edition, I want to choice the responsible:
+		# During datafile edition, I want to choose the responsible:
 		# <%= f.label t("label_responsible") %>
 		# <%= \select_in_list(:datafile, :owner, @datafile.owner.login, :users) %>
-		# === Result
+		#
+		# === the html result is
 		# hidden_field("datafile" , "owner_id")
 		# text_field_tag("datafile_owner_display", value of @datafile.owner.login, :disabled => true)
 		# link_to(h_img_btn("btn_select"), {:controller => "users", :todo => "select", :html_ident => "datafile_owner"} , {:target => "_blank", :class => 'menu_bas'})"
+		#
 		# == Impact on other components
 		# the 'index' view  of the object to select can be modified to show or not the menus or anything else
 		# <% unless param_equals?("todo", "select") %>
 		#
-		def select_in_list (sym_objfrom, sym_objto, val_objtoselect, control)
+		def select_in_list (sym_objfrom, sym_objto, val_objtoselect, controller)
 			ret=""
 			ret<< hidden_field(sym_objfrom , "#{sym_objto}_id")
 			ret<< text_field_tag("#{sym_objfrom}_#{sym_objto}_display", val_objtoselect, :disabled => true)
-			ret<< link_to("...", {:controller => control, :todo => "select", :html_ident => "#{sym_objfrom}_#{sym_objto}"} , {:target => "_blank", :class => 'menu_bas',:title=>t("btn_select")})
+			ret<< link_to("...", {:controller => controller, :todo => "select", :html_ident => "#{sym_objfrom}_#{sym_objto}"} , {:target => "_blank", :class => 'menu_bas',:title=>t("btn_select")})
 
 			ret
+		end
+
+		def select_button(object)
+			ret=""
+			ret<<"<input type='button' value='select' class='btn-select'"
+			ret<<" onclick=\"callSelect('#{@myparams["html_ident"]}','#{object.id}','#{object.ident}')\" />"
 		end
 
 		#
@@ -110,4 +121,4 @@ module SylrplmExt
 
 	end
 end
-	
+
