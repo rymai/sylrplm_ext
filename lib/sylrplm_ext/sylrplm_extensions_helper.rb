@@ -31,14 +31,14 @@ module SylrplmExt
 			ret<< hidden_field(sym_objfrom , "#{sym_objto}_id")
 			ret<< text_field_tag("#{sym_objfrom}_#{sym_objto}_display", val_objtoselect, :disabled => true)
 			ret<< link_to("...", {:controller => controller, :todo => "select", :html_ident => "#{sym_objfrom}_#{sym_objto}"} , {:target => "_blank", :class => 'menu_bas',:title=>t("btn_select")})
-
-			ret
+			ret.html_safe
 		end
 
 		def select_button(object)
 			ret=""
 			ret<<"<input type='button' value='select' class='btn-select'"
 			ret<<" onclick=\"callSelect('#{@myparams["html_ident"]}','#{object.id}','#{object.ident}')\" />"
+			ret.html_safe
 		end
 
 		#
@@ -61,10 +61,10 @@ module SylrplmExt
 			html = ""
 			unless values.nil? || values.count == 0
 				#user
-				mdl_object=object.model_name
+				mdl_object=object.modelname
 				#group
 				if assoc_name.nil?
-				mdl_assoc = values[0].model_name
+				mdl_assoc = values[0].modelname
 				else
 				mdl_assoc = assoc_name
 				end
@@ -77,7 +77,7 @@ module SylrplmExt
 				#LOG.debug (fname){"method=#{method}"}
 				#the_selected=object.method(method).call: ko dans certains cas (securite!!)
 				the_selected=object.send(method)
-				#puts "select_inout:object="+object.model_name+" method="+method.to_s+" sel="+the_selected.inspect
+				#puts "select_inout:object="+object.modelname+" method="+method.to_s+" sel="+the_selected.inspect
 				#label_user_groups_out, label_user_groups_in
 				label_out=t("label_"+select_id+"_out")
 				label_in=t("label_"+select_id+"_in")
@@ -102,7 +102,6 @@ module SylrplmExt
 				html += "</table>"
 				html += "<script>selectInOutFill('#{select_id}')</script>"
 			end
-
 			html.html_safe
 		end
 
@@ -111,11 +110,10 @@ module SylrplmExt
 		#
 		def select_with_empty(form, object, attribute, values, id, method)
 			# id du select = role_father_id
-			select_id = object.model_name+'_'+attribute.to_s
+			select_id = object.modelname+'_'+attribute.to_s
 			html = "<p>#{t(:label_select_active)}</p>"
 			html += check_box_tag(:select_active, "no", "false", :onclick=>"selectActive(this, '#{select_id}'); return true;")
 			html += form.collection_select(attribute, values, id, method)
-
 			html.html_safe
 		end
 
