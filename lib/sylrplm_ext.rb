@@ -8,10 +8,9 @@ module SylrplmExt
 
 	ActionView::Base.send :include, SylrplmExt::SylrplmExtensionsHelper
 	
-	puts "#{fname}: sync_javascripts *******************************"
+	puts "#{fname}: ******************************** sync_javascripts **************************"
 	#__FILE__ = /home/syl/trav/rubyonrails/sylrplm_ext/lib/sylrplm_ext.rb
 	dir = "#{File.dirname(File.dirname(__FILE__))}/app/assets/javascripts"
-	puts "#{fname}: dir=#{dir}"
 	
   FileUtils.mkdir_p "public/javascripts/sylrplm_ext"
   
