@@ -130,7 +130,7 @@ module SylrplmExt
       unless object_from.nil?
         unless values.blank?
           array_idents=columns_to_array(object_from, values,:ident)
-          #LOG.debug(fname){"array_idents=#{array_idents}"}
+          puts "*********************************array_idents=#{array_idents}"
           #ret+="<br/><table>"
           ret+="<table>"
           #(0..nblines-1).each do |ind|
@@ -146,7 +146,7 @@ module SylrplmExt
             default_ident=key
             #LOG.debug(fname){"======== #{ind} array_idents=#{array_idents} default_ident=#{default_ident}"}
             options=options_for_select(array_idents,default_ident)
-            #LOG.debug(fname){"#{ind} options=#{options}"}
+            puts "*********************************** #{ind} options=#{options}"
             #
             default_rank=idcol
             #LOG.debug(fname){"#{ind} default_rank=#{default_rank}"}
